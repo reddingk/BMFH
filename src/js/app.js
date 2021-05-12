@@ -5,13 +5,16 @@ import { createBrowserHistory } from 'history';
 /* Components */
 import Home from './components/home';
 import Juneteenth from './components/juneteenth';
+import UC from './components/uc';
 
 /* Styles */
 import "../css/app.less";
 
 const history = createBrowserHistory(); 
 const routes = [
-    { path:"/juneteenth", component:Juneteenth }
+    { path:"/juneteenth", component:Juneteenth },
+    { path:"/aboutUs", component:UC },
+    { path:"/support", component:UC },
 ];
 
 const SiteRoutes = route => (
@@ -25,9 +28,14 @@ function SideNav(props){
                 <NavLink className="title" to="/" onClick={() => props.setSidebarDisplay(false)}>Black Minds For Humanity</NavLink>
             </div>
             <div className="sidenav-section">
-                <NavLink className="sidenav-link" to="/" onClick={() => props.setSidebarDisplay(false)}>About Us</NavLink>
+                <NavLink className="sidenav-link" to="/aboutUs" onClick={() => props.setSidebarDisplay(false)}>About Us</NavLink>
                 <NavLink className="sidenav-link" to="/juneteenth" onClick={() => props.setSidebarDisplay(false)}>Juneteenth Events</NavLink>
-                <NavLink className="sidenav-link" to="/" onClick={() => props.setSidebarDisplay(false)}>How To Support</NavLink>                
+                <NavLink className="sidenav-link" to="/support" onClick={() => props.setSidebarDisplay(false)}>How To Support</NavLink>                
+            </div>
+
+            <div className="sidenav-section bottom-nav">
+                <a href="https://www.instagram.com/blackminds4humanity/" target="_blank" className="social-btn instagram"><i className="fab fa-instagram" /></a>
+                <div className="social-btn youtube"><i className="fab fa-youtube" /></div>
             </div>
         </div>
     );

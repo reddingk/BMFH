@@ -11,7 +11,10 @@ class Home extends Component{
         this.state = {}
     }  
     
-    componentDidMount(){ }
+    componentDidMount(){ 
+        let el = document.getElementsByClassName("app-container"); el[0].scrollTop = 0;
+    }
+
     render(){  
         return(
             <div className="page-body home">
@@ -45,24 +48,24 @@ class Home extends Component{
                 <div className="body-section split">
                     <div className="split-content">
                         <div className="img-container c4"><img src={img1} alt="about image" /></div>
-                        <div className="text-content">
+                        <Link to="/aboutUs" className="text-content">
                             <h2>Who We Are?</h2>
                             <div className="text">
                                 <div className="txt-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 <div className="arrow right"/>
                             </div>
-                        </div>
+                        </Link>
                     </div>
 
                     <div className="split-content reverse">
                         <div className="img-container c2"><img src={img2} alt="event image" /></div>
-                        <div className="text-content">
+                        <Link to="/juneteenth" className="text-content">
                             <h2>Juneteenth</h2>
                             <div className="text">
                                 <div className="txt-info">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
                                 <div className="arrow right"/>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -78,7 +78,27 @@ body {
 
                 &:hover { padding-left: 10px; }
             }
-        }        
+        }  
+        
+        &.bottom-nav { 
+            position: absolute; bottom: 0; left: 0;
+            display: flex; flex-direction: row;
+        }
+
+        .social-btn { 
+            color: #fff; height: 30px; width: 30px;
+            font-size: 20px; display: flex; text-decoration: none;
+            flex-direction: column; justify-content: center;
+            text-align: center; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,1);
+            transition: 0.3s all ease-in-out;
+
+            &:hover { 
+                &.instagram { background: rgba(131,58,180,0.5); }
+                &.youtube { background: rgba(255,0,0,0.5); }
+            }
+            &+.social-btn { margin-left: 20px; }
+        }
     }    
 
     &.active { 
@@ -113,12 +133,27 @@ body {
 
 .page-body {
     min-width: 100%;
+    .home-link { 
+        position: absolute; top: 0; left: 0;
+        padding: 10px; color: #fff; text-decoration: none;
+        background: @color1; z-index: 1004; 
+        transition: 0.7s all ease-in-out;
+
+        span { margin-left: 10px; }
+
+        &:hover { color: @color4; }
+    }
     .body-section {
         padding: 30px 5%;
         &.no-padding { padding: 0;}
     }
 }
 
+.uc {
+    display: flex; flex-direction: column;
+    justify-content: center; text-align: center;
+    h1 { font-weight: 200; font-size: 3rem;}
+}
 
 /* Menu Button */  
 .menu-toggle {
