@@ -1,0 +1,36 @@
+{
+  "name": "black_minds_4_humanity_website",
+  "version": "1.0.0",
+  "description": "Black Minds For Humanity Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "build-css": "less-watch-compiler --run-once --main-file=app.less src/css/ public/css/",
+    "watch-css": "npm run build-css && less-watch-compiler --main-file=app.less src/css/ public/css/",
+    "build": "npm run build-css && react-scripts build",
+    "heroku-postbuild": "npm run build",
+    "script-run": "react-scripts start",
+    "script-dev": "concurrently \"npm run watch-css\" \"npm run script-run\" \"wait-on http://localhost:3001\""
+  },
+  "author": "Kris Redding",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "less-watch-compiler": "1.13.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
