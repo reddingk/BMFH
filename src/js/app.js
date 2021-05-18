@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 /* Components */
 import Home from './components/home';
 import Juneteenth from './components/juneteenth';
+import Support from './components/support';
 import UC from './components/uc';
 
 /* Styles */
@@ -13,8 +14,8 @@ import "../css/app.less";
 const history = createBrowserHistory(); 
 const routes = [
     { path:"/juneteenth", component:Juneteenth },
-    { path:"/aboutUs", component:UC },
-    { path:"/support", component:UC },
+    { path:"/aboutUs", component: UC },
+    { path:"/support", component: Support },
 ];
 
 const SiteRoutes = route => (

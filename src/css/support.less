@@ -1,0 +1,81 @@
+.support {
+    .gallery {
+        margin: 75px 0; display: flex;
+        flex-direction: row; overflow: hidden;
+
+        .text { 
+            padding: 20px 20px 20px 5%; flex:1;
+            h2 { margin-bottom: 0; font-size: 3rem; font-weight: 100;}
+            p { line-height: 2.3rem; font-size: 1.3rem; }
+        }
+
+        .image-gallery { 
+            width: 70%; padding-bottom: 50px;       
+            display: flex; justify-content: center; 
+            position: relative; margin-right: -20%;   
+            
+            .alice-carousel { 
+                .photo-item {
+                    overflow: hidden; margin: 0 10px;
+                    border-radius: 5px; height: 330px; padding: 3px;
+                    img, iframe { 
+                        width: calc(100% - 20px); min-height: calc(100% - 20px); 
+                        object-fit: cover;  border-radius: 2px;
+                        border: 5px solid rgba(39,39,39,1);
+                    }   
+                    
+                    .no-photo {
+                        width: calc(100% - 20px); height: calc(100% - 20px);
+                        background: rgba(0,0,0,1); border-radius: 2px;
+                        border: 7px solid rgba(39,39,39,1);
+                        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+                        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }  
+            
+            .scroll-ctrl { 
+                position: absolute; left: 0; bottom: 0;
+                display: flex; flex-direction: row; justify-content: left;
+                .ctrl-item {
+                    cursor: pointer; font-size: 20px;
+                    padding: 5px 10px; color: @color1;
+                    display: flex; flex-direction: column;
+                    justify-content: center; .color4(background, 0.9);
+                    transition: 0.5s all ease-in-out;
+            
+                    &.disabled { background: rgba(175,175,175,1) !important; opacity: 0.7; cursor: initial;}
+                    &.left { &:hover:not(.disabled) { padding-right: 20px;}}
+                    &.right { &:hover:not(.disabled) { padding-left: 20px;}}
+                    &+.ctrl-item { margin-left: 5px;}                    
+                }
+                @media @mobile-nav { 
+                    left: 50%;  transform: translateX(-50%);
+                    .ctrl-item {  font-size: 30px; }
+                }
+            }
+        }
+    }
+
+    .form {
+        .form-tab-container {
+            display: flex; flex-direction: row;
+            .form-tab { 
+                border-top-left-radius: 4px; border-top-right-radius: 4px;
+                padding: 5px 20px; border-bottom: 2px solid @color3;
+                font-size: 1.2rem; cursor: pointer;
+
+                i { margin-right: 7px; }
+                &.sel { 
+                    border-top: 2px solid @color3; border-left: 2px solid @color3;
+                    border-right: 2px solid @color3; border-bottom:2px solid rgba(0,0,0,0);
+                }
+            }
+            &:before { content:''; width: 10%; border-bottom: 2px solid @color3;}
+            &:after { content:''; flex:1; border-bottom: 2px solid @color3;}
+        }
+
+        .form-content { padding: 0 5%; }
+    }
+}

@@ -19,7 +19,7 @@ class Juneteenth extends Component{
         return(
             <div className="page-body juneteenth">
                 <Link to="/" className="home-link"><i className="fas fa-home"/><span>B.M.F.H.</span></Link>
-                <div className="body-section no-padding landing">
+                <div className="body-section no-padding sub-landing">
                     <div className="img-container"><img src={back} alt="juneteenth background photo" /></div>
 
                     <div className="content-section title move-left">
@@ -34,14 +34,14 @@ class Juneteenth extends Component{
                             </div>
                         </div>
                         <div className="grid-row">
-                            <Link to="/" className="grid-col c4 link move-bottom">
+                            <Link to="#event" className="grid-col c4 link move-bottom">
                                 <p>Come help us celebrate the holiday at our kick-back event full of Food, Fun, & Fellowship.</p>
                                 <div className="text">
                                     <div className="txt-info">Juneteenth Event</div>
                                     <div className="arrow right"/>
                                 </div>
                             </Link>
-                            <Link to="/" className="grid-col c2 link move-right">
+                            <Link to="/support#connect" className="grid-col c2 link move-right">
                                 <p>As we aim to spread the spirit of the holiday throughout the year learn how you can get connected to our future initiatives. </p>
                                 <div className="text">
                                     <div className="txt-info">Get Connected</div>
@@ -52,7 +52,7 @@ class Juneteenth extends Component{
                     </div>
                 </div>
 
-                <div className="body-section event">
+                <div className="body-section event" id="event">
                     <div className="title">
                         <h2>Juneteenth Kickback</h2>
                         <div className="date"><span>Sat. 06.19</span><span>2pm - 7pm</span></div>
