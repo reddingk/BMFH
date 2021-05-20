@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from 'react-alice-carousel';
 
+/* Components */
+import GetConnectedForm from '../shared/getConnectedForm';
+import YourThoughtsForm from '../shared/yourThoughtsForm';
+
 /* Images */
 import back from '../../assets/stock3.jpg';
 
@@ -112,7 +116,8 @@ class Support extends Component{
                     </div>
 
                     <div className="form-content">
-                        <h1>Hello</h1>
+                        {(this.state.selForm === 0 && <GetConnectedForm />)}
+                        {(this.state.selForm === 1 && <YourThoughtsForm />)}
                     </div>
                 </div>
             </div>
