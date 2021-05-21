@@ -26,12 +26,12 @@ function SideNav(props){
     return (
         <div className={"sidenav-container" + (props.sidebarOpen ? " active": "")}>
             <div className="sidenav-section title">
-                <NavLink className="title" to="/" onClick={() => props.setSidebarDisplay(false)}>Black Minds For Humanity</NavLink>
+                <NavLink className="title" to="/" onClick={() => props.setSidebarDisplay(false)}>Black Minds For Humanity <i className="fas fa-brain" /></NavLink>
             </div>
             <div className="sidenav-section">
-                <NavLink className="sidenav-link" to="/aboutUs" onClick={() => props.setSidebarDisplay(false)}>About Us</NavLink>
-                <NavLink className="sidenav-link" to="/juneteenth" onClick={() => props.setSidebarDisplay(false)}>Juneteenth Events</NavLink>
-                <NavLink className="sidenav-link" to="/support" onClick={() => props.setSidebarDisplay(false)}>How To Support</NavLink>                
+                <NavLink className="sidenav-link" to="/aboutUs" onClick={() => props.setSidebarDisplay(false)}><i className="fas fa-chevron-right" />About Us</NavLink>
+                <NavLink className="sidenav-link" to="/juneteenth" onClick={() => props.setSidebarDisplay(false)}><i className="fas fa-chevron-right" />Juneteenth Events</NavLink>
+                <NavLink className="sidenav-link" to="/support" onClick={() => props.setSidebarDisplay(false)}><i className="fas fa-chevron-right" />How To Support</NavLink>                
             </div>
 
             <div className="sidenav-section bottom-nav">

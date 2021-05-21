@@ -27,8 +27,32 @@ class Support extends Component{
         }
 
         /* Functions */
+        this.scrollPage = this.scrollPage.bind(this);
         this.buildPhotoList = this.buildPhotoList.bind(this);
     }  
+
+    scrollPage(sId){
+        try {
+            let el = document.getElementsByClassName("app-container");            
+
+            if(el.length > 0 && (!sId && window.location.href.indexOf("#") <= 0)){
+                el[0].scrollTop = 0;
+            }
+            else if(el.length > 0 && (sId || window.location.href.indexOf("#") > 0)){
+                let urlStr = window.location.href.split("#");
+                let selId = (sId || urlStr[1]);
+                this.setState({ selForm: (selId === "thoughts" ? 1 : 0) }, ()=>{
+                    let id = document.getElementById(selId);
+
+                    if(id) { el[0].scrollTop = id.offsetTop; }
+                    else { el[0].scrollTop = 0; }
+                });                
+            }
+        }
+        catch(ex){
+            console.log("[Error] Scrolling to id: ",ex);
+        }
+    }
 
     buildPhotoList(){
         try {
@@ -57,9 +81,7 @@ class Support extends Component{
         }        
     }
 
-    componentDidMount(){ 
-        let el = document.getElementsByClassName("app-container"); el[0].scrollTop = 0; 
-    }
+    componentDidMount(){ this.scrollPage(null); }
     
     render(){  
         return(
@@ -74,14 +96,14 @@ class Support extends Component{
                     </div>
                     <div className="content-section grid">
                         <div className="grid-row no-flex">
-                            <Link to="#connect" className="grid-col c2 link move-bottom">
+                            <Link to="#connect" className="grid-col c2 link move-bottom" onClick={() => this.scrollPage("connect")}>
                                 <p>As we aim to spread the spirit of the holiday throughout the year learn how you can get connected to our future initiatives. </p>
                                 <div className="text">
                                     <div className="txt-info">Get Connected</div>
                                     <div className="arrow right"/>
                                 </div>
                             </Link>
-                            <Link to="#yourChange" className="grid-col c3 link move-right">
+                            <Link to="#thoughts" className="grid-col c3 link move-right" onClick={() => this.scrollPage("thoughts")}>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <div className="text">
                                     <div className="txt-info">What You Want To See</div>
@@ -112,7 +134,7 @@ class Support extends Component{
                 <div className="body-section no-padding form">
                     <div className="form-tab-container">
                         <div className={"form-tab" + (this.state.selForm === 0 ? " sel" : "")} onClick={() => this.setState({ selForm: 0 })}><i className="fas fa-plug"/>Get Connected</div>
-                        <div className={"form-tab" + (this.state.selForm === 1 ? " sel" : "")} onClick={() => this.setState({ selForm: 1 })}><i className="fas fa-lightbulb" />Your Thoughts</div>
+                        <div className={"form-tab" + (this.state.selForm === 1 ? " sel" : "")} onClick={() => this.setState({ selForm: 1 })}><i className="fas fa-lightbulb" />What You Want To See</div>
                     </div>
 
                     <div className="form-content">

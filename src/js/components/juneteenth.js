@@ -9,10 +9,32 @@ class Juneteenth extends Component{
     constructor(props) {
         super(props);
         this.state = {}
+
+        this.scrollPage = this.scrollPage.bind(this);
     }  
 
+    scrollPage(sId){
+        try {
+            let el = document.getElementsByClassName("app-container");            
+
+            if(el.length > 0 && (!sId && window.location.href.indexOf("#") <= 0)){
+                el[0].scrollTop = 0;
+            }
+            else if(el.length > 0 && (sId || window.location.href.indexOf("#") > 0)){
+                let urlStr = window.location.href.split("#");
+                let id = document.getElementById((sId || urlStr[1]));
+
+                if(id) { el[0].scrollTop = id.offsetTop; }
+                else { el[0].scrollTop = 0; }
+            }
+        }
+        catch(ex){
+            console.log("[Error] Scrolling to id: ",ex);
+        }
+    }
+
     componentDidMount(){ 
-        let el = document.getElementsByClassName("app-container"); el[0].scrollTop = 0; 
+        this.scrollPage(null);
     }
     
     render(){  
@@ -34,7 +56,7 @@ class Juneteenth extends Component{
                             </div>
                         </div>
                         <div className="grid-row">
-                            <Link to="#event" className="grid-col c4 link move-bottom">
+                            <Link to="#event" className="grid-col c4 link move-bottom" onClick={() => this.scrollPage("event")}>
                                 <p>Come help us celebrate the holiday at our kick-back event full of Food, Fun, & Fellowship.</p>
                                 <div className="text">
                                     <div className="txt-info">Juneteenth Event</div>
@@ -55,7 +77,8 @@ class Juneteenth extends Component{
                 <div className="body-section event" id="event">
                     <div className="title">
                         <h2>Juneteenth Kickback</h2>
-                        <div className="date"><span>Sat. 06.19</span><span>2pm - 7pm</span></div>
+                        <div className="sub-info address"><span>123 Wilson Rd., Gaithersburg, MD. 20878</span></div>
+                        <div className="sub-info date"><span>Sat. 06.19</span><span>2pm - 7pm</span></div>
                     </div>
 
                     <div className="split">
