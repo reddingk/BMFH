@@ -50,7 +50,7 @@ class GetConnectedForm extends Component{
                     </div>
                 </div>
 
-                <div className="btn-block c3">
+                <div className="btn-block c4">
                     <div className="block-title">Submit</div>
                     <div className="arrow right"/>
                 </div>

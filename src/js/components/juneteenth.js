@@ -85,8 +85,25 @@ class Juneteenth extends Component{
                         <div className="split-item img-container c3"><img src={img1} alt="event image" /></div>
                         <div className="split-item text">
                             <h3>Food, Fun, Fellowship</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                            <p>Come out and enjoy a fun filled afternoon focused around uplifting ourselves within the community!</p>
+                            <p>Featuring: Music, Games, and Prizes!</p>
+                            <ul>
+                                <li>Food & Drinks provided by Pot Liqueur & Trap Chicken</li>
+                                <li>Maryland Medical and Recreational Cannabis Registration</li>
+                                <li>Prime America Life Insurance</li>
+                                <li>And so much more!</li>
+                            </ul>
+                            <p>Ticket Purchase Includes:</p>
+                            <ul>
+                                <li>A Complimentary Cocktail</li>
+                                <li>Lunch</li>
+                                <li>A Raffle Ticket</li>
+                            </ul>
+                            <p className="split-list">
+                                <span>Single Ticket: $15</span>
+                                <span>2 Person Ticket: $25</span>
+                            </p>  
+                            <p className="mini">* Children 10 & under free of charge</p>                         
                         </div>
 
                         <div className="btn-block c4">

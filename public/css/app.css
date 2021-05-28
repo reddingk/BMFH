@@ -185,6 +185,7 @@ body {
   overflow-y: auto;
   color: #fff;
   display: flex;
+  scroll-behavior: smooth;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -795,12 +796,29 @@ body {
 .juneteenth .event .split .text h3 {
   font-weight: 100;
   font-size: 2.5rem;
-  margin-top: 0;
+  margin: 0;
   text-align: center;
 }
 .juneteenth .event .split .text p {
   font-size: 1.2rem;
   line-height: 2rem;
+  margin-top: 0;
+}
+.juneteenth .event .split .text p.split-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #f1c40f;
+}
+.juneteenth .event .split .text p.split-list span {
+  text-align: center;
+  padding: 0 3px;
+  flex: 1;
+  border: 1px solid #f1c40f;
+}
+.juneteenth .event .split .text p.mini {
+  font-size: 0.9rem;
+  margin: 0;
 }
 .juneteenth .event .split .img-container {
   padding: 20px 0 20px 20px;
@@ -1079,7 +1097,7 @@ body {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   padding: 5px 20px;
-  border-bottom: 2px solid #b02127;
+  border-bottom: 2px solid #f1c40f;
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -1087,23 +1105,24 @@ body {
   margin-right: 7px;
 }
 .support .form .form-tab-container .form-tab.sel {
-  border-top: 2px solid #b02127;
-  border-left: 2px solid #b02127;
-  border-right: 2px solid #b02127;
+  border-top: 2px solid #f1c40f;
+  border-left: 2px solid #f1c40f;
+  border-right: 2px solid #f1c40f;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
 }
 .support .form .form-tab-container:before {
   content: '';
   width: 10%;
-  border-bottom: 2px solid #b02127;
+  border-bottom: 2px solid #f1c40f;
 }
 .support .form .form-tab-container:after {
   content: '';
   flex: 1;
-  border-bottom: 2px solid #b02127;
+  border-bottom: 2px solid #f1c40f;
 }
 .support .form .form-content {
   padding: 0 5% 50px;
+  min-height: calc(80vh - 40px);
 }
 .support-form {
   padding: 50px 0 100px;

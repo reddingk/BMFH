@@ -67,20 +67,20 @@
             display: flex; flex-direction: row;
             .form-tab { 
                 border-top-left-radius: 4px; border-top-right-radius: 4px;
-                padding: 5px 20px; border-bottom: 2px solid @color3;
+                padding: 5px 20px; border-bottom: 2px solid @color4;
                 font-size: 1.2rem; cursor: pointer;
 
                 i { margin-right: 7px; }
                 &.sel { 
-                    border-top: 2px solid @color3; border-left: 2px solid @color3;
-                    border-right: 2px solid @color3; border-bottom:2px solid rgba(0,0,0,0);
+                    border-top: 2px solid @color4; border-left: 2px solid @color4;
+                    border-right: 2px solid @color4; border-bottom:2px solid rgba(0,0,0,0);
                 }
             }
-            &:before { content:''; width: 10%; border-bottom: 2px solid @color3;}
-            &:after { content:''; flex:1; border-bottom: 2px solid @color3;}
+            &:before { content:''; width: 10%; border-bottom: 2px solid @color4;}
+            &:after { content:''; flex:1; border-bottom: 2px solid @color4;}
         }
 
-        .form-content { padding: 0 5% 50px; }
+        .form-content { padding: 0 5% 50px; min-height: calc(80vh - 40px); }
     }
 }
 

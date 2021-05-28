@@ -32,7 +32,7 @@ class Home extends Component{
                         <div className="block b5 c1" />
                         <div className="block b4 c3" />
 
-                        <Link to="/juneteenth" className="block b6 c4 content-block">
+                        <Link to="/juneteenth#event" className="block b6 c4 content-block">
                             <div className="block-title">Juneteenth Event</div>
                             <div className="block-text">Come join us and celebrate juneteenth this year at our holiday kickback with Food, Fun, & Some Information.   </div>
                             <div className="arrow right"/>
