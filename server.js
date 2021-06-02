@@ -18,6 +18,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// Set our api routes
+app.use('/api', require('./server/controllers/routes.controller.js'));
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'build')));
 

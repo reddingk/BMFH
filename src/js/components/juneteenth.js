@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+import "react-alice-carousel/lib/alice-carousel.css";
+import AliceCarousel from 'react-alice-carousel';
+
 /* Images */
 import back from '../../assets/stock1.jpg';
 import img1 from '../../assets/juneteenth.jpg';
@@ -8,10 +11,44 @@ import img1 from '../../assets/juneteenth.jpg';
 class Juneteenth extends Component{
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            details:[
+                {"component":"Photo", "title":"Trap Chicken", "image": "../imgs/gallery/trapChicken.png" },
+                {"component":"Photo", "title":"Canamo", "image": "../imgs/gallery/Canamo.png" },
+                { "component":"Photo", "title":"Pot Liqueor", "image": "../imgs/gallery/potLiq.jpg" }
+            ],
+            responsivePhoto: {
+                0: { items: 1 }, 600: { items: 2 }, 1024: { items: 3 }
+            }
+        }
 
+        this.buildPhotoList = this.buildPhotoList.bind(this);
         this.scrollPage = this.scrollPage.bind(this);
     }  
+
+    buildPhotoList(){
+        try {
+            if(this.state.details.length > 0) {
+                return(                    
+                    this.state.details.map((detail,i) => (
+                        <div className="detail-item" key={i}>
+                            {detail.component === "Photo" ?
+                                <img src={detail.image} alt={(detail.title ? detail.title : "Detail "+i)}/>
+                                : <div />
+                            }
+                            <div className="item-title">{detail.title}</div>
+                        </div>
+                    ))                    
+                )
+            }
+            else {
+                return(<div className="no-photo"/>)
+            }
+        }
+        catch(ex){
+            console.log("Error building photo list: ",ex);
+        }        
+    }
 
     scrollPage(sId){
         try {
@@ -46,7 +83,7 @@ class Juneteenth extends Component{
 
                     <div className="content-section title move-left">
                         <h1>Juneteenth</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>Also known as Freedom Day, Jubilee Day, Liberation Day, and Emancipation Day; Juneteenth is a holiday celebrating the emancipation of those who had been enslaved in the United States.  We celebrate this day by continuing the passing of positive information as well as giving back to our community.</p>
                     </div>
                     <div className="content-section grid">
                         <div className="grid-row sz-6">
@@ -115,10 +152,23 @@ class Juneteenth extends Component{
 
                 <div className="body-section details">
                     <div className="title">
-                        <h2>Details</h2>
+                        <h2>Vendors</h2>
                     </div>
 
-                    <div className="no-details"><div /><div /><div /></div>
+                    {(this.state.details.length > 0 ?
+                        <div className="detail-gallery">
+                            <AliceCarousel className="photo-scroller" items={this.buildPhotoList()}
+                                autoPlayInterval={7000} disableDotsControls disableButtonsControls mouseTracking infinite
+                                responsive={this.state.responsivePhoto} ref={(el) => this.photoCarousel = el }/>
+                            
+                            <div className="scroll-ctrl">
+                                <div className="ctrl-item left" onClick={() => this.photoCarousel.slidePrev()}><i className="fas fa-chevron-left"/></div>
+                                <div className="ctrl-item right" onClick={() => this.photoCarousel.slideNext()}><i className="fas fa-chevron-right"/></div>
+                            </div>
+                        </div>
+                        : <div className="no-details"><div /><div /><div /></div>
+                    )}
+                    
                 </div>
             </div>
         );

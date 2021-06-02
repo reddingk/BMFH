@@ -11,6 +11,8 @@ import YourThoughtsForm from '../shared/yourThoughtsForm';
 /* Images */
 import back from '../../assets/stock3.jpg';
 
+const baseUrl = (window.location.href.indexOf("localhost") > -1 ? "http://localhost:1001" : "");
+
 class Support extends Component{
     constructor(props) {
         super(props);
@@ -29,6 +31,7 @@ class Support extends Component{
         /* Functions */
         this.scrollPage = this.scrollPage.bind(this);
         this.buildPhotoList = this.buildPhotoList.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }  
 
     scrollPage(sId){
@@ -61,7 +64,7 @@ class Support extends Component{
                     this.state.photoGallery.map((photo,i) => (
                         <div className="photo-item" key={i}>
                             {photo.component === "Photo" ?
-                                <img src={photo.image} alt={(photo.title ? photo.title : "Funeral Home "+i)}/>
+                                <img src={photo.image} alt={(photo.title ? photo.title : "Gallery Item "+i)}/>
                                 : <iframe title="buzzfeed-video" src={photo.url}/>
                             }
                         </div>
@@ -81,6 +84,27 @@ class Support extends Component{
         }        
     }
 
+    validateForm(type, data){
+        var ret = true;
+        try {
+            if(data.name.length <= 0) {
+                return false;
+            }
+            else if(data.contact.length <= 0 || (type == "connections" && data.contact.indexOf("@") <= 0)) {
+                return false;
+            }
+            else if(data.interest.length <= 0) {
+                return false;
+            }
+        }
+        catch(ex){
+            console.log("[Error] Validating Form: ",ex);
+            ret = false;
+        }
+
+        return ret;
+    }
+
     componentDidMount(){ this.scrollPage(null); }
     
     render(){  
@@ -92,7 +116,7 @@ class Support extends Component{
 
                     <div className="content-section title move-left">
                         <h1>How To Support</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>Working in the spirit of helping one another we honor this holiday through the year by continuing to serve our community and help others.  With this we are always looking for individuals as well as idea's that will help us to complete this mission.</p>
                     </div>
                     <div className="content-section grid">
                         <div className="grid-row no-flex">
@@ -104,7 +128,7 @@ class Support extends Component{
                                 </div>
                             </Link>
                             <Link to="#thoughts" className="grid-col c3 link move-right" onClick={() => this.scrollPage("thoughts")}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p>The best way to help is get insight into what people are asking for, so we are looking for great ideas that we can support.</p>
                                 <div className="text">
                                     <div className="txt-info">What You Want To See</div>
                                     <div className="arrow right"/>
@@ -117,7 +141,7 @@ class Support extends Component{
                 <div className="body-section no-padding gallery">
                     <div className="text">
                         <h2>Helping Hands</h2>
-                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+                        <p>A picture can often say 1000 words, you will see some of the work we have do so far and some of those that have helped us.</p>
                     </div>
                     <div className="image-gallery">
                         <AliceCarousel className="photo-scroller" items={this.buildPhotoList()}
@@ -138,8 +162,8 @@ class Support extends Component{
                     </div>
 
                     <div className="form-content">
-                        {(this.state.selForm === 0 && <GetConnectedForm />)}
-                        {(this.state.selForm === 1 && <YourThoughtsForm />)}
+                        {(this.state.selForm === 0 && <GetConnectedForm validateForm={this.validateForm} baseUrl={baseUrl} />)}
+                        {(this.state.selForm === 1 && <YourThoughtsForm validateForm={this.validateForm} baseUrl={baseUrl} />)}
                     </div>
                 </div>
             </div>

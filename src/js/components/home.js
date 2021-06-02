@@ -51,7 +51,7 @@ class Home extends Component{
                         <Link to="/aboutUs" className="text-content">
                             <h2>Who We Are?</h2>
                             <div className="text">
-                                <div className="txt-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                <div className="txt-info">More information about who Black Minds For Humanity is along with our mission.</div>
                                 <div className="arrow right"/>
                             </div>
                         </Link>
@@ -62,7 +62,7 @@ class Home extends Component{
                         <Link to="/juneteenth" className="text-content">
                             <h2>Juneteenth</h2>
                             <div className="text">
-                                <div className="txt-info">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                                <div className="txt-info">Get More information about the holiday and ways you can help us celebrate the legacy of this day.</div>
                                 <div className="arrow right"/>
                             </div>
                         </Link>
