@@ -18,9 +18,14 @@ class Support extends Component{
         super(props);
         this.state = {
             photoGallery:[
+                { "component":"Photo", "image": "../imgs/gallery/water4.JPG" },
+                {"component":"Photo", "image": "../imgs/gallery/march1.jpg" },{ "component":"Photo", "image": "../imgs/gallery/march2.jpg" },
+                {"component":"Photo", "image": "../imgs/gallery/march3.jpg" },{ "component":"Photo", "image": "../imgs/gallery/march4.jpg" },
+                {"component":"Photo", "image": "../imgs/gallery/march5.jpg" },{ "component":"Photo", "image": "../imgs/gallery/march6.jpg" },
+
                 {"component":"Photo", "image": "../imgs/gallery/drive1.JPG" },
                 {"component":"Photo", "image": "../imgs/gallery/water1.JPG" },{ "component":"Photo", "image": "../imgs/gallery/water2.JPG" },
-                {"component":"Photo", "image": "../imgs/gallery/water3.JPG" },{ "component":"Photo", "image": "../imgs/gallery/water4.JPG" }
+                {"component":"Photo", "image": "../imgs/gallery/water3.JPG" }
             ],
             responsivePhoto: {
                 0: { items: 1 }, 600: { items: 2 }, 1024: { items: 2 }
