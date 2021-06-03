@@ -982,6 +982,10 @@ body {
     width: 82%;
   }
 }
+.juneteenth .event .split .block-link {
+  color: #fff;
+  text-decoration: none;
+}
 @media (max-width: 770px) {
   .juneteenth .event .split {
     flex-direction: column;

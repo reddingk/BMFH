@@ -114,7 +114,7 @@ class Juneteenth extends Component{
                 <div className="body-section event" id="event">
                     <div className="title">
                         <h2>Juneteenth Kickback</h2>
-                        <div className="sub-info address"><span>123 Wilson Rd., Gaithersburg, MD. 20878</span></div>
+                        <div className="sub-info address"><span>857 Diamond Drive Gaithersburg, MD. 20878</span></div>
                         <div className="sub-info date"><span>Sat. 06.19</span><span>2pm - 7pm</span></div>
                     </div>
 
@@ -143,10 +143,10 @@ class Juneteenth extends Component{
                             <p className="mini">* Children 10 & under free of charge</p>                         
                         </div>
 
-                        <div className="btn-block c4">
+                        <a className="block-link btn-block c4" href="https://www.evite.com/event/03F9AOLBZZP6LQIHSEPLYSP3ID3CQ4/rsvp?utm_campaign=send_sharable_link&utm_medium=sharable_invite&utm_source=evitelink" target="_blank">
                             <div className="block-title">RSVP</div>
                             <div className="arrow right"/>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
