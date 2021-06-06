@@ -699,6 +699,7 @@ body {
   .home .landing .block-grid .block.b6 {
     left: -85%;
     width: 80%;
+    min-width: initial;
     height: 150px;
   }
 }
